@@ -1,5 +1,4 @@
-PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/bash/bin:/usr/local/opt/findutils/bin:/usr/local/opt/grep/bin:/usr/loca$
-
+PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/bash/bin:/usr/local/opt/findutils/bin:/usr/local/opt/grep/bin:/usr/local/opt/xz/bin:$PATH
 # This loads nvm
 export NVM_DIR="/Users/ziggajt1/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
