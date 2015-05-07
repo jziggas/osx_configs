@@ -1,12 +1,10 @@
 #!/bin/bash
-# Lint-Test-Push
 # Step 1: Have your changes commited and ready to push.
-# Step 2: Git pull latest
+# Step 2: Git pull latest and have all merge conflicts resolved.
 # Step 3: Cut a hole in the box.
-([[ -z $(git status -uno --porcelain) ]] && echo "Found no git changes. Running jshint.") || (echo 'Found either (1) changes to existing files, (2) newly added files, (3) deleted files. Commit or stash your changes before pushing!' && git status && kill -SIGPIPE $$);
+([[ -z $(git status -uno --porcelain) ]] && echo "Found no unstaged changes. Running jshint.") || (echo 'Found either (1) changes to existing files, (2) newly added files, (3) deleted files. Commit or stash your changes before pushing!' && git status && kill -SIGPIPE $$);
 lint_result=$(grunt jshint | tee >(cat 1>&2) | grep '>>');
 lint_error=$(echo "$lint_result" | grep "error");
-
 if [ ${#lint_error} -gt 0 ]; then echo "Lint errors found, cannot push to repo." ; exit
 else echo "No lint errors found. Running grunt test-jenkins."
 fi
